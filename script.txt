@@ -1,0 +1,58 @@
+https://github.com/ErickWendel/nodejs-with-mongodb-api-example
+
+git clone https://github.com/ErickWendel/nodejs-with-mongodb-api-example
+
+download
+    docker run --name mongodb -p 27017:27017 -d mongo:4
+    docker ps 
+    docker exec -it mongodb mongo
+        show dbs 
+        use local
+        show collections
+        db.statup_logs.find().pretty()
+
+Show envs on file 
+npm i 
+npm run build 
+npm start 
+npm run dev:watch 
+change file 
+see on browser 
+
+Create .dockerignore
+Create Dockerfile 
+    create run.sh
+        docker volume create --name nodemodules
+        docker volume remove nodemodules
+
+        docker build -t app .
+        docker run -p 4000:4000 \
+            --link mongodb \
+            -e MONGO_URL=mongodb \
+            -e PORT=4000 \
+            -v `pwd`:/src \
+            -v nodemodules:/src/node_modules \
+            app npm run dev:watch
+
+    bash run.sh 
+    browser and show result 
+    change title 
+    browser and show result 
+
+Create docker-compose 
+    add mongodb 
+    add app 
+    change command for dev
+    
+    docker stop $(docker ps -aq)
+    docker rm $(docker ps -aq)
+    docker volume remove nodemodules
+
+    docker-compose up --build
+
+    see on browser result
+    do changes in file 
+    see on browser result
+    docker-compose down
+
+
